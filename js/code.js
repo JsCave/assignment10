@@ -50,8 +50,15 @@ function handleDelete(index){
   handleDisplay()
 }
 
+function normalizeUrl(url) {
+  if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    return 'http://' + url;
+  }
+  return url;
+}
+
 function handleUrl(index){
-  window.open(list[index].site); 
+  window.open(normalizeUrl(list[index].site));
 }
 
 function closeBox(){
